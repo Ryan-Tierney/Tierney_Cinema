@@ -1,15 +1,15 @@
 <%= form_for(@user, url:'/signup') do |f| %> 
 
     <%= f.label :email %> 
-    <%= f.email_field :email, required: true %> 
+    <%= f.email_field :email, required: true %>: 
     <br>
     <br>
     <%= f.label :username %>
-    <%= f.text_field :username, required: true %> 
+    <%= f.text_field :username, required: true %>: 
     <br>
     <br>
     <%= f.label :password %> 
-    <%= f.password_field :password, required: true %> 
+    <%= f.password_field :password, required: true %>: 
     <br>
     <br>
     <%= f.submit "submit" %> 

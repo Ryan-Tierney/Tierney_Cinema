@@ -10,6 +10,18 @@
   </head>
     <header> 
       <center>
+      <div>
+      <% if logged_in? %> 
+        <%= link_to "Home", "/users/show" %> |
+        <%= link_to "Logout", logout_path, method: "delete" %> |
+        <%= link_to "Movies", movies_path %> |
+        <%= link_to "Write a Review", new_review_path %>
+      <% else %>
+        <%= link_to "Sign Up", signup_path %> |
+        <%= link_to "Login", login_path %>
+
+        <% end %>  
+    </div>
       <h1> Welcome to Tierney Cinema </h1>
         <hr>
       </center>

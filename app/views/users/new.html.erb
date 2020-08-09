@@ -1,3 +1,9 @@
+<center>
 <h1> Sign Up </h1>
 
 <%= render partial: 'form', locals: {users: @users} %>
+
+<br>
+<h4>Already have an account <hr></h4>
+<%= link_to "Login here", login_path %> 
+</center>
