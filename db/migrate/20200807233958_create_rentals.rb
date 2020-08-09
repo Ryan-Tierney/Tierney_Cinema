@@ -3,6 +3,7 @@ class CreateRentals < ActiveRecord::Migration[6.0]
     create_table :rentals do |t|
       t.integer :movie_id 
       t.integer :user_id 
+      t.string :available
       t.timestamps
     end
   end

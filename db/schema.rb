@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 2020_08_07_234010) do
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "rating"
-    t.text "summary"
-    t.integer "cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -24,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_234010) do
   create_table "rentals", force: :cascade do |t|
     t.integer "movie_id"
     t.integer "user_id"
+    t.string "available"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -42,7 +41,6 @@ ActiveRecord::Schema.define(version: 2020_08_07_234010) do
     t.string "username"
     t.string "password_digest"
     t.integer "age"
-    t.integer "money"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

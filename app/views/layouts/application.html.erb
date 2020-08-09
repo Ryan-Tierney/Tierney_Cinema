@@ -12,7 +12,7 @@
       <center>
       <div>
       <% if logged_in? %> 
-        <%= link_to "Home", "/users/show" %> |
+        <%= link_to "Home", "/users/:id" %> |
         <%= link_to "Logout", logout_path, method: "delete" %> |
         <%= link_to "Movies", movies_path %> |
         <%= link_to "Reviews", reviews_path %>

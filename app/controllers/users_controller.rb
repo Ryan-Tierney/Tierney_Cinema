@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+    before_action :redirect_if_not_logged_in
+    skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
+    before_action :no_url_hacking, only: [:show, :edit, :update]
+
 
     def new 
         @user = User.new 
@@ -21,14 +25,13 @@ class UsersController < ApplicationController
     end 
 
     def edit 
-        @user = User.find(params[:id])
+        @user = User.find_by_id(params[:id])
     end 
 
     def udpate 
-        @user = User.find(params[:id])
-        @user.update(money: params[:money])
-        if @user.save 
-            redirect_to @user 
+        @user = User.find_by_id(params[:id])
+        if @user.update(user_params)
+            redirect_to user_path(@user)
         else 
             render :show
         end 
@@ -37,6 +40,10 @@ class UsersController < ApplicationController
     private 
 
     def user_params 
-        params.permit(:username, :email, :password, :age, :money)
+        params.require(:user).permit(:username, :email, :password, :ages)
     end 
+
+    def no_url_hacking
+        redirect_to '/' unless current_user.id.to_s == params[:id]
+      end
 end

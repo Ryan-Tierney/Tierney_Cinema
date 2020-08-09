@@ -1,18 +1,11 @@
 <h1> Hello <%= @user.username %> </h1>
-
- 
-<%= form_for @user do |f| %> 
-    <%= f.number_field :money %> 
-
-    <%= f.submit 'Add Funds' %> 
-<% end %> 
-<br>
-Current funds $<%= @user.money %>.00 
+<p>Email: <%= @user.email %></p>
+<p>Age: <%= @user.age %></p>
 <br>
 <br>
-
- 
-
+<%= check_for_age(@user) %>
+<br>
+<br>
 Movies Rented 
 <br>
 <%= @user.movies.each do |movie| %> 
