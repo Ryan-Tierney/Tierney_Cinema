@@ -1,0 +1,10 @@
+<%= @reviews.each do |r| %>
+    <%= r.user.name %>
+    <%= r.title %> 
+    <%= r.content %> 
+<% end %> 
+<br>
+<br>
+<hr><center>
+<%= link_to "Write a Review", new_review_path %>
+</center

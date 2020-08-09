@@ -1,5 +1,11 @@
-<%= @movies.each do |m| %> 
-    <%= m.title %> 
-    <%= m.rating %> 
-    <%= m.cost %> 
-    <%= m.summary %> 
+<h3>Filter movies:</h3>
+<%= form_tag("/movies", method: "get") do %>
+  <%= select_tag "rating", options_for_select(["PG", "PG13", "R"]), include_blank: true %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<% @movies.each do |movie| %> <br>
+    <%= link_to "#{movie.title}", movie_path(movie) %> <br>
+    Rated: <%= movie.rating %> <br>
+    $<%= movie.cost %>.99 <br>
+    <% end %> <br>

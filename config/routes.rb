@@ -10,5 +10,5 @@ delete '/logout' => 'sessions#destroy'
 
 resources :movies  
 resources :reviews 
-resources :users
+resources :users 
 end
