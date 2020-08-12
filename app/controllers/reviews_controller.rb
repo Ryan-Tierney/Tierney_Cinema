@@ -2,25 +2,22 @@ class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def new 
-        @review = Review.new 
+        @movie = Movie.find_by(id: params[:movie_id])
+        @review = Review.new  
     end 
 
     def create 
-        @review = current_user.reviews.build(review_params)
+        @movie = Movie.find_by(id: params[:movie_id])
+        @review = Review.create(
+        :title => review_params[:title], 
+        :content => review_params[:content], 
+        :movie_id => params[:movie_id])
         if @review.save 
-            redirect_to reviews_path
+            redirect_to movie_path(@review.movie)
         else 
             render :new 
         end 
     end 
-
-    def show 
-        @review = Review.find_by(id: params[:id])
-    end 
-
-    def index 
-        @reviews = Review.all 
-    end
     
     private 
 

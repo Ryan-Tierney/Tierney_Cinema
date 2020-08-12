@@ -1,13 +1,14 @@
 class Rental < ApplicationRecord
+  
     belongs_to :movie 
     belongs_to :user 
 
     def rent_movie
-        if self.customer != nil
+        if self.user != nil
           if !old_enough?
             "Sorry, you are not old enough to watch this movie."
           else
-            self.update(:status => "checked out",)
+            self.update(:available => "checked out",)
             "Thanks for renting #{self.movie.title}!"
           end
         end
@@ -27,14 +28,14 @@ class Rental < ApplicationRecord
           required_age = 0
         end
     
-        required_age < self.customer.age
+        required_age < self.user.age
       end
     
       def self.checked_out
-         self.where("status = 'checked out'")
+         self.where("available = 'checked out'")
       end
     
       def self.past_rentals
-        self.where("status = 'returned'")
+        self.where("available = 'returned'")
       end
 end

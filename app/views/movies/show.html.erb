@@ -1,4 +1,18 @@
 <center>
 <h1><%= @movie.title %></h1>
 <h1>Rated:<%= @movie.rating %></h1> 
+
+<form method="post" action="/rentals">
+  <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+  <%= tag(:input, :type => "hidden", :name => :user_id, :value => current_user.id) %>
+  <%= tag(:input, :type => "hidden", :name => :movie_id, :value => @movie.id) %>
+  <input type="submit" value="Rent Movie">
+<br>
+<br>
+  <%= @movie.reviews.each do |review| %> 
+    <%= review.title %> - <%= review.content %>
+<% end %> 
+<hr>
+<%= link_to "Write a Review", 'movies/#{@movie.id}/reviews/new' %>
 </center>
+

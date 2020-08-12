@@ -3,18 +3,12 @@
 <p>Age: <%= @user.age %></p>
 <br>
 <br>
-<%= check_for_age(@user) %>
+<div style="width:50%">
+  <%= check_for_age(@user) %>
+</div>
 <br>
 <br>
-Movies Rented 
-<br>
-<%= @user.movies.each do |movie| %> 
-    <%= movie.title %> 
-<% end %> 
-<br>
-Movies Reviewed 
-<br>
-<%= @user.reviews.each do |review| %>
-    <%= review.movie.title %> 
-<% end %> 
+
+
+<h3><%= link_to "Edit your profile", edit_user_path(@user.id) %></h3>
  

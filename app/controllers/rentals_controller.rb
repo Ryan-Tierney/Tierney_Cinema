@@ -1,7 +1,8 @@
 class RentalsController < ApplicationController
   before_action :no_url_hacking, only: [:index]
+
   def index
-    if params[:customer_id]
+    if params[:user_id]
       @user = User.find_by(id: params[:user_id])
       if @user.nil?
         redirect_to "/"
@@ -25,7 +26,7 @@ class RentalsController < ApplicationController
 
   def update
     @rental = Rental.find_by(id: params[:rental_id])
-    @rental.update(:status => "returned")
+    @rental.update(:available => "returned")
     @rental.save
 
     @message = "Thank you for returning #{@rental.movie.title}."
@@ -35,6 +36,6 @@ class RentalsController < ApplicationController
   private
 
   def no_url_hacking
-    redirect_to '/' unless current_user.id.to_s == params[:customer_id]
+    redirect_to '/' unless current_user.id.to_s == params[:user_id]
   end
 end

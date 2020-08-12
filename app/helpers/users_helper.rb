@@ -13,7 +13,7 @@ module UsersHelper
          if user.age
            if user.age < 13
             statement + under_thirteen
-           elsif customer.age < 17
+           elsif user.age < 17
             statement + under_seventeen
            else
             statement + over_seventeen

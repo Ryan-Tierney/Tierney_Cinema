@@ -7,7 +7,7 @@ post '/signup' => 'users#create'
 get '/login' => 'sessions#new'
 post 'login' => 'sessions#create'
 get '/auth/facebook/callback' => 'sessions#create'
-delete '/logout' => 'sessions#destroy' 
+get '/logout' => 'sessions#destroy' 
 
 resources :users 
 resources :users, only: [:show] do 
@@ -17,9 +17,12 @@ end
 post '/rentals', to: 'rentals#create'
 get '/rentals/:id', to: 'rentals#update'
 
-resources :movies, only: [:index, :show]
+resources :movies, only: [:index]
+resources :movies, only: [:show] do 
+  get '/reviews/new', to: 'reviews#new'
+  post '/reviews', to: 'reviews#create'
+end 
 
 
-resources :reviews
 
 end
