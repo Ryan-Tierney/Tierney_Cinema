@@ -1,10 +1,14 @@
+
+  </head> 
 <h3>Filter movies:</h3>
 <%= form_tag("/movies", method: "get") do %>
   <%= select_tag "rating", options_for_select(["PG", "PG13", "R"]), include_blank: true %>
   <%= submit_tag "Filter" %>
 <% end %>
 
+<div class="movies_list">
 <% @movies.each do |movie| %> <br>
     <%= link_to "#{movie.title}", movie_path(movie) %> <br>
     Rated: <%= movie.rating %> <br>
     <% end %>
+</div class="movies_list">

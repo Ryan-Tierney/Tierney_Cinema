@@ -1,3 +1,13 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+div.movies, a {
+    font-size: 24px;
+    width:250px;
+    overflow:auto;
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+
+  }

@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+
+ body, #grad {
+    background-image: linear-gradient(to right, rgb(13, 4, 95) , rgb(103, 129, 247));
+    font-size: 30px;
+    color: white;
+  }
+
+  h1 {
+    text-decoration: underline;
+  }
+
+a:visited {
+    color:white;
+}
+a:link{ 
+    color:white;
+    font-size: 28px;
+}
+
+a:hover{
+    color: rgb(140, 193, 236);
+}
+
+hr {
+    color: white;
+}
+

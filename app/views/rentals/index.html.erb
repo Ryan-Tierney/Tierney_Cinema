@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>My Rentals</h1>
 
@@ -26,23 +26,23 @@
       </tr>
     <% end %>
 
-  </table>
-<br></br>
+        </table>
+      <br></br>
 
-<h3>Past Rentals:</h3>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Rating</th>
-    <th>Cost</th>
+      <h3>Past Rentals:</h3>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Rating</th>
+          <th>Cost</th>
 
-  </tr>
+        </tr>
 
-  <% @past_rentals.each do |rental| %>
-    <tr>
-      <td><%= link_to rental.movie.title, movie_path(rental.movie.id) %></td>
-      <td><%= rental.movie.rating %></td>
-    </tr>
-  <% end %>
+        <% @past_rentals.each do |rental| %>
+          <tr>
+            <td><%= link_to rental.movie.title, movie_path(rental.movie.id) %></td>
+            <td><%= rental.movie.rating %></td>
+          </tr>
+        <% end %>
 
-</table>
+      </table>
