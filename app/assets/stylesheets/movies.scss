@@ -2,12 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-div.movies, a {
-    font-size: 24px;
-    width:250px;
-    overflow:auto;
-    color: red;
-    font-family: 'Times New Roman', Times, serif;
-
+  ul {
+            column-count: 3;
+         list-style-type: none;
   }
+  
+  li {
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  

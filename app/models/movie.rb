@@ -12,4 +12,10 @@ class Movie < ApplicationRecord
             Movie.where("rating = 'R'")
         end 
     end 
+
+    def self.title_filter(title_param)
+        if title_param == "A"
+            Movie.where("title.starts_with? = 'A'")
+        end 
+    end 
 end
