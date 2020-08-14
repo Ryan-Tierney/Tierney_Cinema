@@ -2,7 +2,7 @@ class Movie < ApplicationRecord
     has_many :rentals 
     has_many :reviews 
     has_many :users, through: :rentals 
-
+    scope :alpha, -> {order(:title) }
     def self.rating_filter(rating_param)
         if rating_param == "PG"
             Movie.where("rating = 'PG'")
@@ -12,10 +12,5 @@ class Movie < ApplicationRecord
             Movie.where("rating = 'R'")
         end 
     end 
-
-    def self.title_filter(title_param)
-        if title_param == "A"
-            Movie.where("title.starts_with? = 'A'")
-        end 
-    end 
+ 
 end

@@ -5,9 +5,6 @@
   <%= label_tag "Filter By Rating:" %>
   <%= select_tag "rating", options_for_select(["PG", "PG13", "R"]), include_blank: true %>
   <br>
-  <%= label_tag "Filter By Title:" %>
-  <%= select_tag "title", options_for_select(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]), include_blank: true %> 
-  <br>
   <%= submit_tag "Filter" %>
 <% end %>
 

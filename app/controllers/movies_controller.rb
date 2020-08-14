@@ -3,9 +3,9 @@ class MoviesController < ApplicationController
     def index
       if logged_in?
         if !params[:rating].blank?
-          @movies = Movie.rating_filter(params[:rating])
+          @movies = Movie.rating_filter(params[:rating]).alpha
         else
-          @movies = Movie.all
+          @movies = Movie.all.alpha
         end
       else
         redirect_to '/login'
