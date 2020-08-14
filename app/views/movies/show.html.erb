@@ -10,10 +10,9 @@
   <input type="submit" value="Rent Movie">
 <br>
 <br>
-  <%= @movie.reviews.each do |review| %> 
-    <%= review.title %> - <%= review.content %>
-<% end %> 
-<hr>
-<%= link_to "Write a Review", 'movies/{@movie.id}/reviews/new' %>
-</center>
 
+
+<%= link_to "See Reviews",  movie_reviews_path(@movie) %> 
+<P> OR </P>
+<%= link_to "Write a Review", new_movie_review_path(@movie) %>
+</center>

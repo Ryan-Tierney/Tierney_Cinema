@@ -1,9 +1,24 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    
+    def index 
+        @movie = Movie.find_by(id: params[:movie_id])
+        if params[:movie_id] && Movie.find_by_id(params[:movie_id])
+            if @movie
+                @reviews = @movie.reviews
+            end 
+        else 
+            @reviews = Review.all 
+        end 
+    end 
 
     def new 
-        @movie = Movie.find_by(id: params[:movie_id])
+        if params[:movie_id] && @movie = @movie = Movie.find_by(id: params[:movie_id])
+            @review = @movie.reviews.build
+        else 
+            @error = "This Movie Doesn't Exist" if params[:movie_id]
         @review = Review.new  
+        end 
     end 
 
     def create 
@@ -22,6 +37,6 @@ class ReviewsController < ApplicationController
     private 
 
     def review_params 
-        params.require(:review).permit(:title, :content)
+        params.require(:review).permit(:title, :content, :movie_id)
     end 
 end

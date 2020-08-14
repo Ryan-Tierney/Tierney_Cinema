@@ -6,8 +6,8 @@ post '/signup' => 'users#create'
 
 get '/login' => 'sessions#new'
 post 'login' => 'sessions#create'
-get '/auth/facebook/callback' => 'sessions#create'
 get '/logout' => 'sessions#destroy' 
+get "/auth/google_oauth2/callback" => 'sessions#google' 
 
 resources :users 
 resources :users, only: [:show] do 
@@ -19,8 +19,7 @@ get '/rentals/:id', to: 'rentals#update'
 
 resources :movies, only: [:index]
 resources :movies, only: [:show] do 
-  get '/reviews/new', to: 'reviews#new'
-  post '/reviews', to: 'reviews#create'
+  resources :reviews
 end 
 
 

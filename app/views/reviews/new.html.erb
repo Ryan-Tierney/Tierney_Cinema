@@ -1,7 +1,7 @@
 
-<h1> Add a Review for <%= @movie.title %> </h1> 
+<h1> Add a Review for: <%= @movie.title %> </h1> 
 
-<%= form_for @review, url:"/movies/#{@movie.id}/reviews" do |f| %> 
+<%= form_for([@review.movie,@review]) do |f| %> 
 
     <%= f.label :title %>: 
     <br>
@@ -15,5 +15,6 @@
     <%= f.text_area :content %> 
     <br>
     <br>
+    <%= f.hidden_field :movie_id %> 
     <%= f.submit %> 
 <% end %> 

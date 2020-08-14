@@ -1,10 +1,10 @@
 module UsersHelper
 
     def check_for_age(user)
-        statement = "According the the Motion Picture Association of America (MPAA),
-        you are old enough to see movies with a rating of "
+        statement =
+        "You are old enough to see movies with a rating of "
     
-        under_thirteen = "You are not old enough to watch"
+        under_thirteen = "Must have Parental Guidance"
         under_seventeen = "PG, and PG13."
         over_seventeen = "PG, PG13 and R."
 
@@ -12,7 +12,7 @@ module UsersHelper
     
          if user.age
            if user.age < 13
-            statement + under_thirteen
+            under_thirteen
            elsif user.age < 17
             statement + under_seventeen
            else

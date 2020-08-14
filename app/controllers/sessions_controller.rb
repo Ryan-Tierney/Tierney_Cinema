@@ -11,17 +11,6 @@ class SessionsController < ApplicationController
     end 
 
     def create 
-        if request.env['omniauth.auth']
-            @user = User.find_or_create_by(email: auth['info']['email']) do |user|
-                user.username = auth['info']['username']
-                user.email = auth['info']['email']
-                user.password = auth['uid']
-            end 
-
-        @user.save 
-        session[:user_id] = @user.id
-        redirect_to '/profile_page'
-        else 
         user = User.find_by(username: params[:user][:username])
         if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id 
@@ -29,13 +18,27 @@ class SessionsController < ApplicationController
         else 
             flash[:message] = "Incorrect Username and/or Password"
             redirect_to  "/login"
-        end 
-        end 
+        end  
     end 
 
     def destroy 
         session.clear 
         redirect_to root_path
+    end 
+
+    def google 
+       @user = User.find_or_create_by(email: auth['info']['email']) do |user|
+        user.email = auth['info']['email']
+        user.username = auth['info']['email']
+        user.password = SecureRandom.hex
+        end 
+        if @user.save 
+            session[:user_id] = @user.id
+            redirect_to user_path(@user) 
+        else 
+            flash[:message] = "User Not Found"
+            redirect_to '/'
+        end 
     end 
 
     private 

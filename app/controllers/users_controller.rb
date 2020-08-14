@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-    before_action :redirect_if_not_logged_in
-    skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
-    before_action :no_url_hacking, only: [:show, :edit, :update]
+    #before_action :redirect_if_not_logged_in
+    #skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
+    #before_action :no_url_hacking, only: [:show, :edit, :update]
 
 
     def new 
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
         if @user.update(user_params)
             redirect_to user_path(@user)
         else 
+            flash[:message] = "Please fill in all fields"
             render :edit
         end 
     end 

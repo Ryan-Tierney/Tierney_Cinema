@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-
+  before_action :redirect_if_not_logged_in
     def index
       if logged_in?
         if !params[:rating].blank?
