@@ -16,7 +16,7 @@
 
 
  body, #grad {
-    background-image: linear-gradient(to right, rgb(0, 4, 63) , rgb(66, 144, 180) , rgb(0, 4, 63));
+    background-image: linear-gradient(to right, rgb(0, 4, 63) , rgb(62, 185, 241) , rgb(0, 4, 63));
     font-size: 30px;
     color: white;
   }
@@ -41,3 +41,13 @@ hr {
     color: white;
 }
 
+.button {
+  background: #0066A2;
+  color: white;
+  border-style: outset;
+  border-color: #0066A2;
+  height: 50px;
+  width: 100px;
+  font: bold 15px arial, sans-serif;
+  text-shadow:none;
+}

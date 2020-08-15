@@ -23,14 +23,17 @@ class ReviewsController < ApplicationController
 
     def create 
         @movie = Movie.find_by(id: params[:movie_id])
-        @review = Review.create(
+        @user = User.find_by(id: params[:user_id], username: params[:username])
+        @review = Review.new(
         :title => review_params[:title], 
         :content => review_params[:content], 
-        :movie_id => params[:movie_id])
+        :movie_id => params[:movie_id],
+        :user_id => current_user.id)
         if @review.save 
             redirect_to movie_path(@review.movie)
         else 
-            render :new 
+            flash[:message] = "You've already written a movie for this title"
+            render :new  
         end 
     end 
     

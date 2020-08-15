@@ -3,6 +3,8 @@ class Movie < ApplicationRecord
     has_many :reviews 
     has_many :users, through: :rentals 
     scope :alpha, -> {order(:title) }
+
+    
     def self.rating_filter(rating_param)
         if rating_param == "PG"
             Movie.where("rating = 'PG'")

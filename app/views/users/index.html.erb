@@ -1,0 +1,11 @@
+<% @users.each do |user| %> 
+    Username: <%= user.username %> 
+    <br>
+    Email: <%= user.email %> 
+    <br>
+    Age: <%= user.age %>
+    <br>
+    Has reviewed <%= user.reviews.size %> movie(s)
+    <br> 
+    <br>
+    <% end %> 

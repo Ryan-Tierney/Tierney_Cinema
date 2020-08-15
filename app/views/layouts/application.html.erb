@@ -17,9 +17,9 @@
  
       <a class="navbar-brand" href="/"/>Home |</a>
       <% if current_user %>
-        <a class="navbar-brand" href="/movies"/>All Movies |</a>
-        <a class="navbar-brand" href="/users/<%=current_user.id%>"/>My Profile |</a>
-        <a class="navbar-brand" href="/users/<%=current_user.id%>/rentals"/>My Rentals |</a>
+        <a class="navbar-brand" href="/movies"/>Movies |</a>
+        <a class="navbar-brand" href="/users/<%=current_user.id%>"/>Profile |</a>
+        <a class="navbar-brand" href="/users/<%=current_user.id%>/rentals"/>Rentals |</a>
         <a class="navbar-brand" href="/logout"/>Log Out</a>
       <% else %>
         <a class="navbar-brand" href="/signup"/>Sign Up |</a>
