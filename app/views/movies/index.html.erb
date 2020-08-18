@@ -8,6 +8,12 @@
   <%= submit_tag "Filter" %>
 <% end %>
 
+<%= form_tag("/movies", method: "get") do %> 
+    <%= label_tag "Search By Name:" %> 
+    <%= text_field_tag "title" %> 
+    <%= submit_tag "Search" %> 
+  <% end %> 
+
 
 <ul id="movies">
   <% @movies.each do |movie| %>

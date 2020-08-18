@@ -16,7 +16,7 @@
 
 
  body, #grad {
-    background-image: linear-gradient(to right, rgb(0, 4, 63) , rgb(62, 185, 241) , rgb(0, 4, 63));
+    background-image: linear-gradient(to right, rgb(0, 4, 63) , rgb(58, 107, 241));
     font-size: 30px;
     color: white;
   }

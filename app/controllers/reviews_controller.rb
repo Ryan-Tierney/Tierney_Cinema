@@ -32,7 +32,6 @@ class ReviewsController < ApplicationController
         if @review.save 
             redirect_to movie_path(@review.movie)
         else 
-            flash[:message] = "You've already written a movie for this title"
             render :new  
         end 
     end 

@@ -4,6 +4,8 @@ class MoviesController < ApplicationController
       if logged_in?
         if !params[:rating].blank?
           @movies = Movie.rating_filter(params[:rating]).alpha
+        elsif !params[:title].blank?
+          @movies = Movie.filter_by_search(params[:title]).alpha
         else
           @movies = Movie.all.alpha
         end
